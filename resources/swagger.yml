@@ -1,0 +1,133 @@
+swagger: "2.0"
+info:
+  description: Swagger file
+  version: "1.0.0"
+  title: Swagger REST todo-list
+consumes:
+  - application/json
+produces:
+  - application/json
+
+basePath: /api
+
+paths:
+  /todo-list:
+    get:
+      operationId: todolist.read_all
+      tags:
+        - Todo-list
+      summary: Todo list
+      description: Todo list
+      responses:
+        200:
+          description: Success to read list
+          schema:
+            type: array
+            items:
+              properties:
+                key:
+                  type: string
+                task:
+                  type: string
+                details:
+                  type: string
+                status:
+                  type: string
+                timestampCreate:
+                  type: string
+    post:
+      operationId: todolist.create
+      tags:
+        - Todo-list
+      summary: Create a task in the todo list
+      description: Create task
+      parameters:
+        - name: data
+          in: body
+          description: Task to be created
+          required: True
+          schema:
+            type: object
+            properties:
+              key:
+                type: string
+                description: Key of the task
+              task:
+                type: string
+                description: The task
+              details:
+                type: string
+                description: Details of the task
+              status:
+                type: string
+                description: Status of the task
+      responses:
+        201:
+          description: Success
+
+  # /todo-list/{key}:
+  #   get:
+  #     operationId: todo-list.read_one
+  #     tags:
+  #       - Todo-list
+  #     summary: Read a task form todo list
+  #     description: Read a task
+  #     parameters:
+  #       - name: key
+  #         in: path
+  #         description: Key of the task
+  #         type: string
+  #         required: True
+  #     responses:
+  #       200:
+  #         description: Success
+  #         schema:
+  #           properties:
+  #             key:
+  #               type: string
+  #             task:
+  #               type: string
+  #             details:
+  #               type: string
+  #             status:
+  #               type: string
+  #             timestampCreate:
+  #               type: string
+
+  #   put:
+  #     operationId: todo-list.update
+  #     tags:
+  #       - Todo-list
+  #     summary: Update na lista de Projetos
+  #     description: Update na lista
+  #     parameters:
+  #       - name: name
+  #         in: path
+  #         description: Nome do projeto
+  #         type: string
+  #         required: True
+  #       - name: project
+  #         in: body
+  #         schema:
+  #           type: object
+  #           properties:
+  #             description:
+  #               type: string
+  #     responses:
+  #       200:
+  #         description: Sucesso ao atualizar
+
+  #   delete:
+  #     operationId: todo-list.delete
+  #     tags:
+  #       - Todo-list
+  #     summary: Deletar um projeto na lista de Projetos
+  #     description: Deleta um projeto
+  #     parameters:
+  #       - name: name
+  #         in: path
+  #         type: string
+  #         required: True
+  #     responses:
+  #       200:
+  #         description: Sucesso ao deletar
