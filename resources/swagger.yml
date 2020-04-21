@@ -61,9 +61,6 @@ paths:
               status:
                 type: string
                 description: Status of the task
-              timestampCreate:
-                type: string
-                description: Timestamp of the creation of the task
       responses:
         201:
           description: Success

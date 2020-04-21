@@ -11,7 +11,7 @@ def startConnection():
 
         # connect to the PostgreSQL server
         conn = psycopg2.connect(**params)
-		
+        
     except (Exception, psycopg2.DatabaseError) as error:
         print(error)
 
