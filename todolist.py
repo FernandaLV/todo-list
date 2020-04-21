@@ -1,15 +1,9 @@
 import json
 from bd.model import *
 from flask import jsonify, make_response, abort
-from django.core.serializers.json import DjangoJSONEncoder
-import datetime
+from appmetrics import metrics
 
-
-def default(o):
-    if isinstance(o, (datetime.date, datetime.datetime)):
-        return o.isoformat()
-
-
+@metrics.with_histogram("read_all")
 def read_all():
 
     todoList = selectAll()
@@ -36,6 +30,7 @@ def read_all():
 
     return todoListR
 
+@metrics.with_histogram("read_one")
 def read_one(key):
 
     todoListOne = selectOne(key)
@@ -55,7 +50,7 @@ def read_one(key):
 
     return todoListOneR
 
-
+@metrics.with_histogram("create")
 def create(data):
     
     key = data["key"]
@@ -75,7 +70,7 @@ def create(data):
             "{key} error".format(key=key),
         )
 
-
+@metrics.with_histogram("update")
 def update(key, data):
     
     task = data["task"]
@@ -93,7 +88,7 @@ def update(key, data):
             404, "Not found"
         )
 
-
+@metrics.with_histogram("delete")
 def delete(key):
 
     idTask = deleteTask(key)
