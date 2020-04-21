@@ -40,6 +40,9 @@ class TestListMethods(unittest.TestCase):
         self.assertEqual(response.data, dataReturn.encode())
 
     def test_read_all(self):
+        
+        header = {"content-type": "application/json"}
+
         # read all todo list
         response = self.app.get(
             "/api/todo-list",

@@ -1,6 +1,6 @@
 import json
 from bd.model import *
-from flask import jsonify, make_response, abort
+from flask import make_response, abort
 from appmetrics import metrics
 
 @metrics.with_histogram("read_all")
