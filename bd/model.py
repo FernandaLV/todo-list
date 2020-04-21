@@ -56,7 +56,7 @@ def insertTask (key, task, details, status):
 
 def selectAll ():
 
-    sql = "SELECT * FROM tasks"
+    sql = "SELECT id, key, \"timestampCreate\", task, details, status FROM tasks"
 
     todoList = None
 
@@ -71,6 +71,35 @@ def selectAll ():
 
         # get list
         todoList = cur.fetchall()
+
+        # close communication with the database
+        cur.close()
+
+    except (Exception, psycopg2.DatabaseError) as error:
+        print(error)
+
+    finally:
+        closeConnection(conn)
+        return todoList
+
+
+def selectOne(key):
+
+    sql = "SELECT key, \"timestampCreate\", task, details, status FROM tasks WHERE key = %s;"
+
+    todoList = None
+
+    conn = startConnection()
+
+    try:
+        # create a cursor
+        cur = conn.cursor()
+
+        # execute select query     
+        cur.execute(sql, (key, ))
+
+        # get list
+        todoList = cur.fetchone()
 
         # close communication with the database
         cur.close()

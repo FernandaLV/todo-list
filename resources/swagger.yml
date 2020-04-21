@@ -61,41 +61,44 @@ paths:
               status:
                 type: string
                 description: Status of the task
+              timestampCreate:
+                type: string
+                description: Timestamp of the creation of the task
       responses:
         201:
           description: Success
 
-  # /todo-list/{key}:
-  #   get:
-  #     operationId: todo-list.read_one
-  #     tags:
-  #       - Todo-list
-  #     summary: Read a task form todo list
-  #     description: Read a task
-  #     parameters:
-  #       - name: key
-  #         in: path
-  #         description: Key of the task
-  #         type: string
-  #         required: True
-  #     responses:
-  #       200:
-  #         description: Success
-  #         schema:
-  #           properties:
-  #             key:
-  #               type: string
-  #             task:
-  #               type: string
-  #             details:
-  #               type: string
-  #             status:
-  #               type: string
-  #             timestampCreate:
-  #               type: string
+  /todo-list/{key}:
+    get:
+      operationId: todolist.read_one
+      tags:
+        - Todo-list
+      summary: Read a task form todo list
+      description: Read a task
+      parameters:
+        - name: key
+          in: path
+          description: Key of the task
+          type: string
+          required: True
+      responses:
+        200:
+          description: Success
+          schema:
+            properties:
+              key:
+                type: string
+              task:
+                type: string
+              details:
+                type: string
+              status:
+                type: string
+              timestampCreate:
+                type: string
 
   #   put:
-  #     operationId: todo-list.update
+  #     operationId: todolist.update
   #     tags:
   #       - Todo-list
   #     summary: Update na lista de Projetos
@@ -118,7 +121,7 @@ paths:
   #         description: Sucesso ao atualizar
 
   #   delete:
-  #     operationId: todo-list.delete
+  #     operationId: todolist.delete
   #     tags:
   #       - Todo-list
   #     summary: Deletar um projeto na lista de Projetos

@@ -1,5 +1,5 @@
 import json
-from bd.model import insertTask, selectAll
+from bd.model import *
 from flask import jsonify, make_response, abort
 from django.core.serializers.json import DjangoJSONEncoder
 import datetime
@@ -14,35 +14,46 @@ def read_all():
 
     todoList = selectAll()
 
-    todoListR = {}
+    todoListR = []
 
     for todoTask in todoList:
 
-        idTask = todoTask[0]
         key = todoTask[1].strip()
         timestampCreate = todoTask[2]
         task = todoTask[3].strip()
         details = todoTask[4]
         status = todoTask[5].strip()
 
-        todoListR[idTask] = {}
+        todoListT = {}
 
-        todoListR[idTask]["key"] = key
-        todoListR[idTask]["timestampCreate"] = timestampCreate
-        todoListR[idTask]["task"] = task
-        todoListR[idTask]["details"] = details
-        todoListR[idTask]["status"] = status
+        todoListT["key"] = key
+        todoListT["timestampCreate"] = timestampCreate
+        todoListT["task"] = task
+        todoListT["details"] = details
+        todoListT["status"] = status
+
+        todoListR.append(todoListT)
 
     return todoListR
 
-# def read_one(key):
-#     if key in TODO:
-#         task = TODO.get(key)
-#     else:
-#         abort(
-#             404, "Not found"
-#         )
-#     return task
+def read_one(key):
+
+    todoListOne = selectOne(key)
+
+    if todoListOne is None:
+        abort(
+            404, "Not found"
+        )
+
+    todoListOneR = {
+        "key": todoListOne[0].strip(),
+        "timestampCreate": todoListOne[1],
+        "task": todoListOne[2].strip(),
+        "details": todoListOne[3].strip(),
+        "status": todoListOne[4].strip()
+    }
+
+    return todoListOneR
 
 
 def create(data):
