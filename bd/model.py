@@ -110,3 +110,34 @@ def selectOne(key):
     finally:
         closeConnection(conn)
         return todoList
+
+def updaeteTask(key, task, details, status):
+    
+    sql = "UPDATE tasks SET task = %s, details = %s, status = %s WHERE key= %s RETURNING id;"
+
+    taskId = None
+
+    conn = startConnection()
+
+    try:
+        # create a cursor
+        cur = conn.cursor()
+        
+        # execute insert query     
+        cur.execute(sql, (task, details, status, key))
+
+        # get the generated id back
+        taskId = cur.fetchone()[0]
+
+        # commit the changes to the database
+        conn.commit()
+
+        # close communication with the database
+        cur.close()
+
+    except (Exception, psycopg2.DatabaseError) as error:
+        print(error)
+
+    finally:
+        closeConnection(conn)
+        return taskId

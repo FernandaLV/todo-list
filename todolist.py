@@ -76,17 +76,23 @@ def create(data):
         )
 
 
-# def update(key, task):
-#     if key in TODO:
-#         TODO[key]["task"] = task.get("description")
-#         TODO[key]["details"] = task.get("details")
-#         TODO[key]["status"] = task.get("status")
-        
-#         return TODO[key]
-#     else:
-#         abort(
-#             404, "{key} not found".format(key=key)
-#         )
+def update(key, data):
+    
+    task = data["task"]
+    details = data["details"]
+    status = data["status"]
+    
+    idTask = updaeteTask(key, task, details, status)
+
+    if idTask is not None:
+        return make_response(
+            "{key} updated".format(key=key), 200
+        )
+    else:
+        abort(
+            404, "Not found"
+        )
+
 
 # def delete(key):
 #     if key in TODO:

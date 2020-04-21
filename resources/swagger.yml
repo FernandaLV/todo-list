@@ -97,28 +97,35 @@ paths:
               timestampCreate:
                 type: string
 
-  #   put:
-  #     operationId: todolist.update
-  #     tags:
-  #       - Todo-list
-  #     summary: Update na lista de Projetos
-  #     description: Update na lista
-  #     parameters:
-  #       - name: name
-  #         in: path
-  #         description: Nome do projeto
-  #         type: string
-  #         required: True
-  #       - name: project
-  #         in: body
-  #         schema:
-  #           type: object
-  #           properties:
-  #             description:
-  #               type: string
-  #     responses:
-  #       200:
-  #         description: Sucesso ao atualizar
+    put:
+      operationId: todolist.update
+      tags:
+        - Todo-list
+      summary: Update na lista de Projetos
+      description: Update na lista
+      parameters:
+        - name: key
+          in: path
+          description: Nome do projeto
+          type: string
+          required: True
+        - name: data
+          in: body
+          schema:
+            type: object
+            properties:
+              task:
+                type: string
+                description: The task
+              details:
+                type: string
+                description: Details of the task
+              status:
+                type: string
+                description: Status of the task
+      responses:
+        200:
+          description: Success
 
   #   delete:
   #     operationId: todolist.delete
