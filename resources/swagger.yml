@@ -73,7 +73,7 @@ paths:
       operationId: todolist.read_one
       tags:
         - Todo-list
-      summary: Read a task form todo list
+      summary: Read a task from todo list
       description: Read a task
       parameters:
         - name: key
@@ -101,12 +101,12 @@ paths:
       operationId: todolist.update
       tags:
         - Todo-list
-      summary: Update na lista de Projetos
-      description: Update na lista
+      summary: Update a task from todo list
+      description: Update a task
       parameters:
         - name: key
           in: path
-          description: Nome do projeto
+          description: Key of the task
           type: string
           required: True
         - name: data
@@ -127,17 +127,17 @@ paths:
         200:
           description: Success
 
-  #   delete:
-  #     operationId: todolist.delete
-  #     tags:
-  #       - Todo-list
-  #     summary: Deletar um projeto na lista de Projetos
-  #     description: Deleta um projeto
-  #     parameters:
-  #       - name: name
-  #         in: path
-  #         type: string
-  #         required: True
-  #     responses:
-  #       200:
-  #         description: Sucesso ao deletar
+    delete:
+      operationId: todolist.delete
+      tags:
+        - Todo-list
+      summary: Delete a tassk from todo list
+      description: Delete a task
+      parameters:
+        - name: key
+          in: path
+          type: string
+          required: True
+      responses:
+        200:
+          description: Success

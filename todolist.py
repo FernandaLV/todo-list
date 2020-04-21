@@ -94,13 +94,15 @@ def update(key, data):
         )
 
 
-# def delete(key):
-#     if key in TODO:
-#         del TODO[key]
-#         return make_response(
-#             "{key} deleted".format(key=key), 200
-#         )
-#     else:
-#         abort(
-#             404, "{key} not found".format(key=key)
-#         )
+def delete(key):
+
+    idTask = deleteTask(key)
+
+    if idTask is not None:
+        return make_response(
+            "{key} deleted".format(key=key), 200
+        )
+    else:
+        abort(
+            404, "Not found"
+        )

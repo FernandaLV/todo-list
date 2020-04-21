@@ -141,3 +141,35 @@ def updaeteTask(key, task, details, status):
     finally:
         closeConnection(conn)
         return taskId
+
+def deleteTask(key):
+    
+    sql = "DELETE FROM tasks WHERE key= %s RETURNING id;"
+
+    taskId = None
+
+    conn = startConnection()
+
+    try:
+        # create a cursor
+        cur = conn.cursor()
+        
+        # execute insert query     
+        cur.execute(sql, (key, ))
+
+        # get the generated id back
+        taskId = cur.fetchone()[0]
+
+        # commit the changes to the database
+        conn.commit()
+
+        # close communication with the database
+        cur.close()
+
+    except (Exception, psycopg2.DatabaseError) as error:
+        print(error)
+
+    finally:
+        closeConnection(conn)
+        return taskId
+
