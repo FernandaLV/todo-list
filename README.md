@@ -8,7 +8,7 @@ Para instalar as bibliotecas python necessárias para a aplicação:
 
 ```bash
 $ pip install flask-cors flask_swagger_ui connexion connexion[swagger-ui] appmetrics unittest json
-# pode ser necessário colocar a versão do python para rodar como, no exemplo abaixo:
+# pode ser necessário colocar a versão do pip para rodar, como no exemplo abaixo:
 $ pip3 install flask-cors flask_swagger_ui connexion connexion[swagger-ui] appmetrics unittest json
 ```
 
@@ -17,7 +17,7 @@ Para rodar os tests unitários:
 
 ```bash
 $ python -m unittest test
-# pode ser necessário colocar a versão do python para rodar como, no exemplo abaixo:
+# pode ser necessário colocar a versão do python para rodar, como no exemplo abaixo:
 $ python3 -m unittest test
 ```
 
@@ -26,7 +26,7 @@ Para rodar a aplicação python:
 
 ```bash
 $ python server.py
-# pode ser necessário colocar a versão do python para rodar como, no exemplo abaixo:
+# pode ser necessário colocar a versão do python para rodar, como no exemplo abaixo:
 $ python3 server.py
 ```
 
