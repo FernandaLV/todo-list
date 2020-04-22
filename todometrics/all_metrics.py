@@ -1,4 +1,4 @@
-def allMetrics(metrics):
+def all_metrics(metrics):
 
     metricsGetCreate  = metrics.get("create")
     metricsGetReadAll = metrics.get("read_all")
@@ -16,31 +16,31 @@ def allMetrics(metrics):
 
     return allMetricsR
 
-def createMetrics(metrics):
+def create_metrics(metrics):
     createMetricsR = {
         "create": metrics.get("create")
     }
     return createMetricsR
 
-def readAllMetrics(metrics):
+def read_all_metrics(metrics):
     readAllMetricsR = {
         "read_all": metrics.get("read_all")
     }
     return readAllMetricsR
 
-def readOneMetrics(metrics):
+def read_one_metrics(metrics):
     readOneMetricsR = {
         "read_one": metrics.get("read_one")
     }
     return readOneMetricsR
 
-def updateMetrics(metrics):
+def update_metrics(metrics):
     updateMetricsR = {
         "update": metrics.get("update")
     }
     return updateMetricsR
 
-def deleteMetrics(metrics):
+def delete_metrics(metrics):
     deleteMetricsR = {
         "delete": metrics.get("delete")
     }
