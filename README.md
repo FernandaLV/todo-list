@@ -32,7 +32,7 @@ $ python3 server.py
 
 ## Documentações da aplicação
 
-Com a aplicação rodando, é possível visualiar a documentação swaager, healthcheck e métricas.
+Com a aplicação rodando, é possível visualiar a documentação swagger, healthcheck e métricas.
 
 Obs: `<url da aplicação>` -> se a aplicação estiver localmente é `localhost:5000`
 
