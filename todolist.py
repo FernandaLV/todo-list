@@ -3,7 +3,7 @@ from flask import make_response, abort
 from appmetrics import metrics
 
 @metrics.with_histogram("read_all")
-def read_all():
+def readAll():
 
     todoList = selectAll()
 
@@ -30,7 +30,7 @@ def read_all():
     return todoListR
 
 @metrics.with_histogram("read_one")
-def read_one(key):
+def readOne(key):
 
     todoListOne = selectOne(key)
 
@@ -63,19 +63,19 @@ def create(data):
     
     if (' ' in key):
         abort(
-            406,
+            400,
             "Invalid key. Cannot have spaces",
         )
 
     if (key == ''):
         abort(
-            406,
+            400,
             "Invalid key. Cannot be empty",
         )
     
     if (status != 'pending' and status != 'completed'):
         abort(
-            406,
+            400,
             "Status must be pending or completed",
         )
     
@@ -104,7 +104,7 @@ def update(key, data):
 
     if (status != 'pending' and status != 'completed'):
         abort(
-            406,
+            400,
             "Status must be pending or completed",
         )
     

@@ -64,7 +64,7 @@ class TestListMethods(unittest.TestCase):
         dataResponse = json.loads(response.data.decode('utf-8'))
 
 
-        self.assertEqual(response.status_code, 406)
+        self.assertEqual(response.status_code, 400)
         self.assertEqual(dataResponse["detail"], dataReturn)
 
     def test_read_all(self):

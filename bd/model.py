@@ -18,7 +18,6 @@ def startConnection():
     finally:
         return conn
 
-
 def closeConnection(conn):
     if conn is not None:
         conn.close()
@@ -81,7 +80,6 @@ def selectAll ():
     finally:
         closeConnection(conn)
         return todoList
-
 
 def selectOne(key):
 
