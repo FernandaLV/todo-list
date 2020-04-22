@@ -2,7 +2,7 @@
 
 API RESTFUL de uma lista de tarefas.
 
-# Rodar a aplicação
+## Rodar a aplicação
 
 Para instalar as bibliotecas python necessárias para a aplicação:
 
@@ -47,7 +47,7 @@ Para a visualização das métricas:
 `<url da aplicação>/metrics`
 
 
-# Banco de dados
+## Banco de dados
 
 Este projeto está utilizando um banco de dados postgresql.
 
