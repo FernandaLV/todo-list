@@ -13,7 +13,7 @@ basePath: /
 paths:
   /todo:
     get:
-      operationId: todolist.read_all
+      operationId: todolist.readAll
       tags:
         - Todo-list
       summary: Read all todo list
@@ -77,7 +77,7 @@ paths:
 
   /todo/{key}:
     get:
-      operationId: todolist.read_one
+      operationId: todolist.readOne
       tags:
         - Todo-list
       summary: Read a task from todo list

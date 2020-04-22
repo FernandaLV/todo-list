@@ -43,8 +43,15 @@ Para visualização da documentação swagger:
 Para a visualização do healthcheck:
 `<url da aplicação>/healthcheck`
 
-Para a visualização das métricas:
+Para a visualização de todas as métricas:
 `<url da aplicação>/metrics`
+
+Para visualização das metrícas conforme a operação:
+`<url da aplicação>/metrics/create`
+`<url da aplicação>/metrics/read_all`
+`<url da aplicação>/metrics/read_one`
+`<url da aplicação>/metrics/update`
+`<url da aplicação>/metrics/delete`
 
 
 ## Banco de dados
