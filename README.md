@@ -38,20 +38,20 @@ Obs: `<url da aplicação>` -> se a aplicação estiver localmente é `localhost
 
 
 Para visualização da documentação swagger:
-`<url da aplicação>`/ui/
+`<url da aplicação>/ui/`
 
 Para a visualização do healthcheck:
-`<url da aplicação>`/healthcheck
+`<url da aplicação>/healthcheck`
 
 Para a visualização das métricas:
-`<url da aplicação>`/metrics
+`<url da aplicação>/metrics`
 
 
 # Banco de dados
 
 Este projeto está utilizando um banco de dados postgresql.
 
-Os dados do banco estão localizados no arquivo [resources/databese.ini](resources/databese.ini), para utilizar outro banco bassta modificar este arquivo.
+Os dados do banco estão localizados no arquivo [resources/database.ini](resources/database.ini), para utilizar outro banco bassta modificar este arquivo.
 
 Este projeto está configurado para utilizar um banco de dados criado na plataforma do [heroku](https://heroku.com) para testes publicos.
 
