@@ -15,8 +15,8 @@ class TestListMethods(unittest.TestCase):
 
     def test_create(self):
 
-        r1 = random.randint(10,99)
-        r2 = random.randint(10,99)
+        r1 = random.randint(100,999)
+        r2 = random.randint(100,999)
         
         key = 'unit-test-list-%s-%s' % (r1, r2)
         task = 'Task from unit test - list'
@@ -32,12 +32,40 @@ class TestListMethods(unittest.TestCase):
 
         header = {"content-type": "application/json"}
 
-        response = self.app.post("/api/todo-list",data=json.dumps(data), headers=header)
+        response = self.app.post("/todo",data=json.dumps(data), headers=header)
 
         dataReturn = '%s created' % (key)
 
         self.assertEqual(response.status_code, 201)
         self.assertEqual(response.data, dataReturn.encode())
+
+    def test_create_invalid_key(self):
+
+        r1 = random.randint(100,999)
+        r2 = random.randint(100,999)
+        
+        key = 'unit-test-list %s-%s' % (r1, r2)
+        task = 'Task from unit test - list'
+        details = 'Automatic test create with random invalid key %s-%s' % (r1, r2)
+        status = 'pending'
+
+        data = {
+            "key": key,
+            "task": task,
+            "details": details,
+            "status": status
+        }
+
+        header = {"content-type": "application/json"}
+
+        response = self.app.post("/todo",data=json.dumps(data), headers=header)
+
+        dataReturn = "Invalid key. Cannot have spaces"
+        dataResponse = json.loads(response.data.decode('utf-8'))
+
+
+        self.assertEqual(response.status_code, 406)
+        self.assertEqual(dataResponse["detail"], dataReturn)
 
     def test_read_all(self):
         
@@ -45,7 +73,7 @@ class TestListMethods(unittest.TestCase):
 
         # read all todo list
         response = self.app.get(
-            "/api/todo-list",
+            "/todo",
             headers=header
         )
 
@@ -54,8 +82,8 @@ class TestListMethods(unittest.TestCase):
     def test_read_one(self):
 
         # insert a task to read after
-        r1 = random.randint(10,99)
-        r2 = random.randint(10,99)
+        r1 = random.randint(100,999)
+        r2 = random.randint(100,999)
         
         key = 'unit-test-list-%s-%s' % (r1, r2)
         task = 'Task from unit test - list'
@@ -72,7 +100,7 @@ class TestListMethods(unittest.TestCase):
         header = {"content-type": "application/json"}
 
         response = self.app.post(
-            "/api/todo-list",
+            "/todo",
             data=json.dumps(data),
             headers=header
         )
@@ -84,7 +112,7 @@ class TestListMethods(unittest.TestCase):
 
         # read the task
         response = self.app.get(
-            "/api/todo-list/%s" % key,
+            "/todo/%s" % key,
             headers=header
         )
 
@@ -96,8 +124,8 @@ class TestListMethods(unittest.TestCase):
     def test_update(self):
 
         # insert a task to read after
-        r1 = random.randint(10,99)
-        r2 = random.randint(10,99)
+        r1 = random.randint(100,999)
+        r2 = random.randint(100,999)
         
         key = 'unit-test-list-%s-%s' % (r1, r2)
         task = 'Task from unit test - list'
@@ -114,7 +142,7 @@ class TestListMethods(unittest.TestCase):
         header = {"content-type": "application/json"}
 
         response = self.app.post(
-            "/api/todo-list",
+            "/todo",
             data=json.dumps(data),
             headers=header
         )
@@ -136,7 +164,7 @@ class TestListMethods(unittest.TestCase):
         }
 
         response = self.app.put(
-            "/api/todo-list/%s" % key,
+            "/todo/%s" % key,
             data=json.dumps(data), 
             headers=header
         )
@@ -149,8 +177,8 @@ class TestListMethods(unittest.TestCase):
     def test_delete(self):
 
         # insert a task to delete after
-        r1 = random.randint(10,99)
-        r2 = random.randint(10,99)
+        r1 = random.randint(100,999)
+        r2 = random.randint(100,999)
         
         key = 'unit-test-list-%s-%s' % (r1, r2)
         task = 'Task from unit test - list'
@@ -167,7 +195,7 @@ class TestListMethods(unittest.TestCase):
         header = {"content-type": "application/json"}
 
         response = self.app.post(
-            "/api/todo-list",
+            "/todo",
             data=json.dumps(data),
             headers=header
         )
@@ -179,7 +207,7 @@ class TestListMethods(unittest.TestCase):
 
         # delete the task
         response = self.app.delete(
-            "/api/todo-list/%s" % key,
+            "/todo/%s" % key,
             headers=header
         )
 

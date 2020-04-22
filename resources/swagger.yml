@@ -8,39 +8,44 @@ consumes:
 produces:
   - application/json
 
-basePath: /api
+basePath: /
 
 paths:
-  /todo-list:
+  /todo:
     get:
       operationId: todolist.read_all
       tags:
         - Todo-list
-      summary: Todo list
-      description: Todo list
+      summary: Read all todo list
+      description: Read all todo list
       responses:
         200:
-          description: Success to read list
+          description: Success to read all list
           schema:
             type: array
             items:
               properties:
                 key:
                   type: string
+                  description: Task key
                 task:
                   type: string
+                  description: The task
                 details:
                   type: string
+                  description: Task details
                 status:
                   type: string
+                  description: Task status (pending or completed)
                 timestampCreate:
                   type: string
+                  description: Task creation timestamp
     post:
       operationId: todolist.create
       tags:
         - Todo-list
-      summary: Create a task in the todo list
-      description: Create task
+      summary: Create a new task in the todo list
+      description: Create a new task in the todo list
       parameters:
         - name: data
           in: body
@@ -48,34 +53,39 @@ paths:
           required: True
           schema:
             type: object
+            required:
+              - key
+              - task
+              - status
             properties:
               key:
                 type: string
-                description: Key of the task
+                description: Task tey, can't have space
               task:
                 type: string
                 description: The task
               details:
                 type: string
-                description: Details of the task
+                description: Task details
               status:
                 type: string
-                description: Status of the task
+                description: Task status (pending or completed)
+                default: pending
       responses:
         201:
           description: Success
 
-  /todo-list/{key}:
+  /todo/{key}:
     get:
       operationId: todolist.read_one
       tags:
         - Todo-list
       summary: Read a task from todo list
-      description: Read a task
+      description: Read a task from todo list
       parameters:
         - name: key
           in: path
-          description: Key of the task
+          description: Task key
           type: string
           required: True
       responses:
@@ -85,41 +95,49 @@ paths:
             properties:
               key:
                 type: string
+                description: Task key
               task:
                 type: string
+                description: The task
               details:
                 type: string
+                description: Task details
               status:
                 type: string
+                description: Task status (pending or completed)
               timestampCreate:
                 type: string
+                description: Task creation timestamp
 
     put:
       operationId: todolist.update
       tags:
         - Todo-list
       summary: Update a task from todo list
-      description: Update a task
+      description: Update a task from todo list
       parameters:
         - name: key
           in: path
-          description: Key of the task
           type: string
+          description: Task key
           required: True
         - name: data
           in: body
           schema:
             type: object
+            required:
+              - task
+              - status
             properties:
               task:
                 type: string
                 description: The task
               details:
                 type: string
-                description: Details of the task
+                description: Task details
               status:
                 type: string
-                description: Status of the task
+                description: Task status (pending or completed)
       responses:
         200:
           description: Success
@@ -128,12 +146,13 @@ paths:
       operationId: todolist.delete
       tags:
         - Todo-list
-      summary: Delete a tassk from todo list
-      description: Delete a task
+      summary: Delete a task from todo list
+      description: Delete a task from todo list
       parameters:
         - name: key
           in: path
           type: string
+          description: Task key
           required: True
       responses:
         200:

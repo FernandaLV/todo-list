@@ -8,4 +8,4 @@ $ python3 -m unittest test
 
 Para visualizar o swagger:
 
-http://localhost:5000/api/ui/
+http://localhost:5000/ui/

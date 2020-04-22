@@ -1,4 +1,3 @@
-import json
 from bd.model import *
 from flask import make_response, abort
 from appmetrics import metrics
@@ -55,8 +54,30 @@ def create(data):
     
     key = data["key"]
     task = data["task"]
-    details = data["details"]
     status = data["status"]
+
+    try:
+        details = data["details"]
+    except KeyError:
+        details = None
+    
+    if (' ' in key):
+        abort(
+            406,
+            "Invalid key. Cannot have spaces",
+        )
+
+    if (key == ''):
+        abort(
+            406,
+            "Invalid key. Cannot be empty",
+        )
+    
+    if (status != 'pending' and status != 'completed'):
+        abort(
+            406,
+            "Status must be pending or completed",
+        )
     
     idTask = insertTask(key, task, details, status)
 
@@ -74,8 +95,18 @@ def create(data):
 def update(key, data):
     
     task = data["task"]
-    details = data["details"]
     status = data["status"]
+
+    try:
+        details = data["details"]
+    except KeyError:
+        details = None
+
+    if (status != 'pending' and status != 'completed'):
+        abort(
+            406,
+            "Status must be pending or completed",
+        )
     
     idTask = updaeteTask(key, task, details, status)
 
@@ -85,7 +116,7 @@ def update(key, data):
         )
     else:
         abort(
-            404, "Not found"
+            404, "{key} not found".format(key=key)
         )
 
 @metrics.with_histogram("delete")
@@ -99,5 +130,5 @@ def delete(key):
         )
     else:
         abort(
-            404, "Not found"
+            404, "{key} not found".format(key=key)
         )

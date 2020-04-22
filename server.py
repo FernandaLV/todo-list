@@ -8,7 +8,7 @@ from todometrics.allmetrics import allMetrics
 app = connexion.App(__name__)
 
 app.add_api('resources/swagger.yml')
-CORS(app.app,resources=r'/api/*',methods=['GET', 'POST', 'OPTIONS', 'PUT', 'DELETE'])
+CORS(app.app,resources=r'/*',methods=['GET', 'POST', 'OPTIONS', 'PUT', 'DELETE'])
 
 # Add a flask route to expose healthcheck information
 app.add_url_rule('/healthcheck', 'healthcheck', view_func=lambda: health.run())  
