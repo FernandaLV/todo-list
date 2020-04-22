@@ -53,7 +53,7 @@ Este projeto está utilizando um banco de dados postgresql.
 
 Os dados do banco estão localizados no arquivo [resources/database.ini](resources/database.ini), para utilizar outro banco bassta modificar este arquivo.
 
-Este projeto está configurado para utilizar um banco de dados criado na plataforma do [heroku](https://heroku.com) para testes publicos.
+Este projeto está configurado para utilizar um banco de dados criado na plataforma do [heroku](https://heroku.com) para testes públicos.
 
 
 [Documentação do Heroku Postgres](https://devcenter.heroku.com/articles/heroku-postgresql)
