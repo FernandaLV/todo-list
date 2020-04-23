@@ -16,12 +16,12 @@ $ pip3 install flask-cors flask_swagger_ui connexion connexion[swagger-ui] appme
 Para rodar os testes unitários:
 
 ```bash
-$ python -m unittest test
+$ python -m unittest test -v
 # pode ser necessário colocar a versão do python para rodar, como no exemplo abaixo:
-$ python3 -m unittest test
+$ python3 -m unittest test -v
 ```
 
-[Resultado dos testes](resources/img_test.png)
+![Resultado dos testes](resources/img_test.png)
 
 
 Para rodar a aplicação python:
