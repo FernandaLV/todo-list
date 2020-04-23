@@ -1,6 +1,20 @@
 # TODO-LIST
 
-API RESTFUL de uma lista de tarefas.
+API RESTFUL de uma lista de tarefas (todo-list).
+
+Nesta lista de tarefas o usuário grava:
+
+* chave (key);
+  * Uma chave única para a tarefa. Não pode conter espaços;
+* tarefa (task);
+  * A tarefa;
+* status;
+  * O status da tarefa pode ser pendente (pending) ou concluído (completed);
+* detalhes (details);
+  * Detalhes da tarefa. Não é obrigatório;
+* Data e hora do cadastro;
+  * O sistema grava automaticamente a data e hora em que a tarefa foi gravada na todo-list.
+  
 
 ## Rodar a aplicação
 
