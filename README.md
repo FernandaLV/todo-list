@@ -36,7 +36,7 @@ $ python3 server.py
 
 Com a aplicação rodando, é possível visualiar a documentação swagger, healthcheck e métricas.
 
-Obs: `<url da aplicação>` -> se a aplicação estiver localmente é `localhost:5000`
+*Obs: `<url da aplicação>` -> se a aplicação estiver localmente é `localhost:5000`*
 
 
 
