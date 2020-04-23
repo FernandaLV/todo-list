@@ -39,6 +39,7 @@ Com a aplicação rodando, é possível visualiar a documentação swagger, heal
 Obs: `<url da aplicação>` -> se a aplicação estiver localmente é `localhost:5000`
 
 
+
 Para visualização da documentação swagger:
 `<url da aplicação>/ui/`
 
