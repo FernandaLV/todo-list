@@ -5,8 +5,8 @@ import random
 class TestModelMethods(unittest.TestCase):
 
     def test_insert(self):
-        r1 = random.randint(10,99)
-        r2 = random.randint(10,99)
+        r1 = random.randint(100,999)
+        r2 = random.randint(100,999)
         
         key = 'unit-test-%s-%s' % (r1, r2)
         task = 'Task from unit test - model'
@@ -26,8 +26,8 @@ class TestModelMethods(unittest.TestCase):
     def test_select_one(self):
 
         # insert a task to read after
-        r1 = random.randint(10,99)
-        r2 = random.randint(10,99)
+        r1 = random.randint(100,999)
+        r2 = random.randint(100,999)
         
         key = 'unit-test-%s-%s' % (r1, r2)
         task = 'Task from unit test - model'
@@ -46,8 +46,8 @@ class TestModelMethods(unittest.TestCase):
     def test_update(self):
 
         # insert a task to update after
-        r1 = random.randint(10,99)
-        r2 = random.randint(10,99)
+        r1 = random.randint(100,999)
+        r2 = random.randint(100,999)
         
         key = 'unit-test-%s-%s' % (r1, r2)
         task = 'Task from unit test - model'
@@ -70,8 +70,8 @@ class TestModelMethods(unittest.TestCase):
     def test_delete(self):
 
         # insert a task to delete after
-        r1 = random.randint(10,99)
-        r2 = random.randint(10,99)
+        r1 = random.randint(100,999)
+        r2 = random.randint(100,999)
         
         key = 'unit-test-%s-%s' % (r1, r2)
         task = 'Task from unit test - model'
