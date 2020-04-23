@@ -7,9 +7,9 @@ API RESTFUL de uma lista de tarefas.
 Para instalar as bibliotecas python necessárias para a aplicação:
 
 ```bash
-$ pip install flask-cors flask_swagger_ui connexion connexion[swagger-ui] appmetrics unittest json
+$ pip install flask-cors flask_swagger_ui connexion connexion[swagger-ui] appmetrics unittest2 py-healthcheck psycopg2-binary
 # pode ser necessário colocar a versão do pip para rodar, como no exemplo abaixo:
-$ pip3 install flask-cors flask_swagger_ui connexion connexion[swagger-ui] appmetrics unittest json
+$ pip3 install flask-cors flask_swagger_ui connexion connexion[swagger-ui] appmetrics unittest2 py-healthcheck psycopg2-binary
 ```
 
 
