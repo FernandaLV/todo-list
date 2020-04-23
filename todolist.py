@@ -3,7 +3,7 @@ from flask import make_response, abort
 from appmetrics import metrics
 
 @metrics.with_histogram("read_all")
-def readAll():
+def read_all():
 
     todoList = selectAll()
 
@@ -30,7 +30,7 @@ def readAll():
     return todoListR
 
 @metrics.with_histogram("read_one")
-def readOne(key):
+def read_one(key):
 
     todoListOne = selectOne(key)
 
