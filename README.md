@@ -21,7 +21,7 @@ $ python -m unittest test -v
 $ python3 -m unittest test -v
 ```
 
-![Resultado dos testes](resources/img_test.png)
+![Resultado dos testes](resources/images/img_test.png)
 
 
 Para rodar a aplicação python:
@@ -42,11 +42,17 @@ Obs: `<url da aplicação>` -> se a aplicação estiver localmente é `localhost
 Para visualização da documentação swagger:
 `<url da aplicação>/ui/`
 
+![Swagger da API](resources/images/img_swagger.png)
+
 Para a visualização do healthcheck:
 `<url da aplicação>/healthcheck`
 
+![Healthcheck da API](resources/images/img_healthcheck.png)
+
 Para a visualização de todas as métricas:
 `<url da aplicação>/metrics`
+
+![Métricas da API](resources/images/img_metrics.png)
 
 Para visualização das metrícas conforme a operação:
 `<url da aplicação>/metrics/create`
